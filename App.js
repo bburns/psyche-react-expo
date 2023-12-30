@@ -1,26 +1,12 @@
-// expo expects this file to be at project root
+// note: expo expects this file to be at project root
 
-// import { View } from "react-native"
 // import { StatusBar } from "expo-status-bar"
 // import styles from "./src/styles"
-// import { PsycheText, PsycheHeaderText } from "./src/components"
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <PsycheHeaderText>Psyche</PsycheHeaderText>
-//       <PsycheText>An open-source mental health app</PsycheText>
-//       <StatusBar style="auto" />
-//     </View>
-//   )
-// }
 
 // GluestackUIProvider provides aliases and tokens throughout your app, using React's Context API.
-import { GluestackUIProvider, Text, Box } from "@gluestack-ui/themed"
-// import { config } from "@gluestack-ui/config" // Optional if you want to use default theme
-
-import { createConfig } from "@gluestack-ui/themed"
+import { GluestackUIProvider, Box, Heading, Text } from "@gluestack-ui/themed"
 import { config as defaultConfig } from "@gluestack-ui/config"
+import { createConfig } from "@gluestack-ui/themed"
 
 const config = createConfig({
   ...defaultConfig,
@@ -37,8 +23,9 @@ const config = createConfig({
 export default function App() {
   return (
     <GluestackUIProvider config={config}>
-      <Box width="100%" justifyContent="center" alignItems="center">
-        <Text>Open up App.js to start working on your app!</Text>
+      <Box width="100%" justifyContent="center" alignItems="center" bg="$primary500">
+        <Heading color="$light100">Psyche</Heading>
+        <Text color="$light400">An open-source mental health app</Text>
       </Box>
     </GluestackUIProvider>
   )
