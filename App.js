@@ -16,7 +16,7 @@
 // }
 
 // GluestackUIProvider provides aliases and tokens throughout your app, using React's Context API.
-import { GluestackUIProvider, Text, Box, Button, ButtonText } from "@gluestack-ui/themed"
+import { GluestackUIProvider, Text, Box } from "@gluestack-ui/themed"
 import { config } from "@gluestack-ui/config" // Optional if you want to use default theme
 
 export default function App() {
@@ -24,9 +24,6 @@ export default function App() {
     <GluestackUIProvider config={config}>
       <Box width="100%" justifyContent="center" alignItems="center">
         <Text>Open up App.js to start working on your app!</Text>
-        <Button backgroundColor="purple" padding={12}>
-          <ButtonText color="white">Hello world</ButtonText>
-        </Button>
       </Box>
     </GluestackUIProvider>
   )
