@@ -9,7 +9,8 @@ import { config as defaultConfig } from "@gluestack-ui/config"
 import { createConfig } from "@gluestack-ui/themed"
 import { StyleSheet, ImageBackground } from "react-native"
 
-const image = require("./src/assets/backgrounds/pexels-min-an-920534.jpg") // local image
+// const image = require("./src/assets/backgrounds/pexels-min-an-920534.jpg") // local image
+const image = require("./src/assets/backgrounds/pexels-pixabay-326055.jpg") // local image
 // const image = { uri: "https://foo.com/assets/backgrounds/pexels-min-an-920534.jpg" } // remote image
 
 const config = createConfig({
@@ -23,6 +24,19 @@ const config = createConfig({
     // other tokens
   }
 })
+console.log("config", config)
+
+config.components.Heading.theme.color = "$textLight0"
+config.components.Text.theme.color = "$textLight200"
+// config.components.Heading = {
+//   ...config.components.Heading,
+//   variants: {
+//     ...config.components.Heading.variants,
+//     newVariant: {
+//       fontSize: "newFontSize"
+//     }
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {
@@ -51,13 +65,12 @@ export default function App() {
     <GluestackUIProvider config={config}>
       {/* <Box width="100%" justifyContent="center" alignItems="center" bg="$primary500">
       </Box> */}
-      <Box style={styles.container}>
+      <Box style={styles.container} bg="$primary500" fg="$primary200">
         <ImageBackground source={image} style={styles.image}>
-          {/* <Text style={styles.text}>Elements</Text>
-          <Text style={styles.text}>in Front of</Text>
-          <Text style={styles.text}>Background</Text> */}
-          <Heading style={styles.heading}>Psyche</Heading>
-          <Text style={styles.text}>An open-source mental health app</Text>
+          {/* <Heading style={styles.heading}>Psyche</Heading> */}
+          {/* <Text style={styles.text}>An open-source mental health app</Text> */}
+          <Heading>Psyche</Heading>
+          <Text>An open-source mental health app</Text>
         </ImageBackground>
       </Box>
     </GluestackUIProvider>
