@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   text: {
-    // fontFamily: "Cochin"
-    fontFamily: "mayqueen"
+    fontFamily: "sans-serif"
+    // fontFamily: "mayqueen"
   },
   headerText: {
     fontSize: 20,
