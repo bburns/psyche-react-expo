@@ -2,14 +2,14 @@
   "expo": {
     "name": "Psyche",
     "slug": "Psyche",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "orientation": "portrait",
     "icon": "./src/assets/icons/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
     "splash": {
       "image": "./src/assets/splash/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "black"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -18,7 +18,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/icons/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "black"
       }
     },
     "web": {
