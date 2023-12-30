@@ -1,34 +1,34 @@
-// import styles from "./src/styles"
+// default theme - https://gluestack.io/ui/docs/theme-configuration/theme/default-tokens
 
-// import { config as defaultConfig } from "@gluestack-ui/config"
-// import { createConfig } from "@gluestack-ui/themed"
+import { config as defaultConfig } from "@gluestack-ui/config"
+import { createConfig } from "@gluestack-ui/themed"
+import { mergeDeep } from "./utils"
 
-// const config = createConfig({
-//   ...defaultConfig,
-//   tokens: {
-//     ...defaultConfig.tokens,
-//     fontSizes: {
-//       ...defaultConfig.tokens.fontSizes,
-//       newFontSize: 90
-//     }
-//     // other tokens
-//   }
-// })
+// config.tokens.fontSizes.newFontSize = 90
+// config.components.Heading.theme.color = "$textLight0"
+// config.components.Text.theme.color = "$textLight200"
+
+// define prop overrides and use deepmerge
+
+const overrides = {
+  components: {
+    Heading: {
+      theme: {
+        color: "$textLight0"
+      }
+    },
+    Text: {
+      theme: {
+        color: "$textLight200"
+      }
+    }
+  },
+  tokens: {
+    fontSizes: {
+      newFontSize: 90
+    }
+  }
+}
+
+export const config = createConfig(mergeDeep(defaultConfig, overrides))
 // console.log("config", config)
-
-import { config } from "@gluestack-ui/config"
-
-config.tokens.fontSizes.newFontSize = 90
-config.components.Heading.theme.color = "$textLight0"
-config.components.Text.theme.color = "$textLight200"
-// config.components.Heading = {
-//   ...config.components.Heading,
-//   variants: {
-//     ...config.components.Heading.variants,
-//     newVariant: {
-//       fontSize: "newFontSize"
-//     }
-//   }
-// }
-
-export { config }
