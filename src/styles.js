@@ -1,21 +1,42 @@
 import { StyleSheet } from "react-native"
 
-const styles = StyleSheet.create({
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: "black",
+//     alignItems: "center",
+//     justifyContent: "center"
+//   },
+//   text: {
+//     color: "white",
+//     fontFamily: "sans-serif"
+//     // fontFamily: "mayqueen"
+//   },
+//   headerText: {
+//     fontSize: 20,
+//     fontWeight: "bold"
+//   }
+// })
+
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "black",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center"
   },
-  text: {
-    color: "white",
-    fontFamily: "sans-serif"
-    // fontFamily: "mayqueen"
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    width: "100%",
+    justifyContent: "center",
+    alignItems: "center"
   },
-  headerText: {
-    fontSize: 20,
-    fontWeight: "bold"
+  heading: {
+    color: "white",
+    bold: true
+  },
+  text: {
+    color: "lightgray"
   }
 })
-
-export default styles
