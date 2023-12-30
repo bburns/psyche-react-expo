@@ -1,5 +1,5 @@
 {
-  "name": "react-expo2",
+  "name": "psyche-react-expo",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -19,7 +19,8 @@
     "react-dom": "18.2.0",
     "react-native": "0.72.6",
     "react-native-svg": "^13.4.0",
-    "react-native-web": "~0.19.6"
+    "react-native-web": "~0.19.6",
+    "@types/react": "~18.2.14"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
