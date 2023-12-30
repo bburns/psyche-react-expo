@@ -17,7 +17,22 @@
 
 // GluestackUIProvider provides aliases and tokens throughout your app, using React's Context API.
 import { GluestackUIProvider, Text, Box } from "@gluestack-ui/themed"
-import { config } from "@gluestack-ui/config" // Optional if you want to use default theme
+// import { config } from "@gluestack-ui/config" // Optional if you want to use default theme
+
+import { createConfig } from "@gluestack-ui/themed"
+import { config as defaultConfig } from "@gluestack-ui/config"
+
+const config = createConfig({
+  ...defaultConfig,
+  tokens: {
+    ...defaultConfig.tokens,
+    fontSizes: {
+      ...defaultConfig.tokens.fontSizes,
+      newFontSize: 90
+    }
+    // other tokens
+  }
+})
 
 export default function App() {
   return (
