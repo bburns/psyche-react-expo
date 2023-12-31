@@ -1,22 +1,17 @@
 import React from "react"
 import { Box, HStack, Input, InputField, InputIcon, InputSlot } from "@gluestack-ui/themed"
 import { SearchIcon } from "@gluestack-ui/themed"
-// import { Image } from "@gluestack-ui/themed"
-import { AddIcon, Button, ButtonText, ButtonIcon, Icon, Image } from "@gluestack-ui/themed"
+import { Button, ButtonText, ButtonIcon, Image } from "@gluestack-ui/themed"
 // import { Info, Layers, Plus, Search } from 'lucide-react-native';
-// import { Button, ButtonText, ButtonIcon } from "@gluestack-ui/themed"
 // import HeaderTabs from "./header/HeaderTabs";
 // import HomestayLogo from "./header/HomestayLogo";
 // import ToggleMode from "./header/ToggleMode";
 import UserProfile from "./UserProfile"
 
-const image = require("../assets/icons/icon.png") // local image
-console.log("image", image)
+const logo = require("../assets/icons/icon.png") // local image
+const Logo = () => <Image source={logo} size="xs" />
 
 const Header = React.memo(() => {
-  const Im = () => <Image source={image} />
-  console.log("Im", Im)
-
   return (
     <Box>
       {/* big screen */}
@@ -35,9 +30,7 @@ const Header = React.memo(() => {
       >
         <HStack alignItems="center" justifyContent="space-between" mx="auto" w="100%">
           <Button size="md" variant="solid" action="primary" isDisabled={false} isFocusVisible={false}>
-            {/* <ButtonIcon as={AddIcon} /> */}
-            {/* <ButtonIcon as={image} /> */}
-            <ButtonIcon as={Im} />
+            <ButtonIcon as={Logo} />
             <ButtonText>Psyche</ButtonText>
           </Button>
 
