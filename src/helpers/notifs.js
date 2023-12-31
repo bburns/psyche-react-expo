@@ -30,17 +30,12 @@ async function handlePromptWithRationale() {
   return false
 }
 
-export function createNotification() {
-  console.log("createNotification")
-  const title = "Psyche reminder"
-  const body = `Take a mindful pause. Be an observer of your thoughts and feelings.`
-  const img = require("../assets/icons/icon.png")
-  const options = {
-    body,
-    icon: img
-  }
-  console.log("new Notification", title, options)
-  const notification = new Notification(title, options)
+// create a new web Notification, using a new browser API -
+// sends a notification to the OS.
+// obj has { title, options: { body, icon } }
+export function createNotification(obj) {
+  console.log("createNotification", obj)
+  const notification = new Notification(obj.title, obj.options)
   notification.onshow = () => {
     console.log("notification shown")
   }

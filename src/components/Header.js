@@ -12,24 +12,21 @@ import UserProfile from "./UserProfile"
 const logo = require("../assets/icons/icon.png") // local image
 const Logo = () => <Image source={logo} size="xs" alt="Psyche logo" />
 
+function about() {
+  alert(`Psyche is an open-source mental health app.`)
+}
+
 const Header = React.memo(() => {
   return (
-    <Box w="100%">
+    <Box w="100%" bg="black">
       <Box w="100%">
         <HStack justifyContent="space-between" alignItems="center" w="100%" space="lg" px="$2">
           <Button size="md" variant="link">
             <ButtonIcon as={Logo} />
-            <ButtonText color="white">&nbsp;Psyche</ButtonText>
+            <ButtonText color="lightgray">&nbsp;Psyche</ButtonText>
           </Button>
-          <Text color="gray">An open-source mental health app</Text>
-          <Button
-            size="sm"
-            variant="link"
-            onPress={() => {
-              alert("hi")
-            }}
-          >
-            <ButtonText color="white" fontWeight="$medium">
+          <Button size="sm" variant="link" onPress={about}>
+            <ButtonText color="lightgray" fontWeight="$medium">
               About
             </ButtonText>
           </Button>
