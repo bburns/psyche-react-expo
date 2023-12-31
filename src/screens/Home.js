@@ -19,9 +19,11 @@ const reminder = {
 // const image = require("../assets/backgrounds/vincent-guth-ISI5DlnYvuY-unsplash.jpg")
 // const image = require("../assets/backgrounds/pexels-min-an-920534.jpg")
 // const image = require("../assets/backgrounds/pexels-pixabay-326055.jpg")
-const image = require("../assets/backgrounds/purple_and_white_flowers_during_windy_day (720p).mp4")
+// const image = require("../assets/backgrounds/purple_and_white_flowers_during_windy_day (720p).mp4")
 // remote images
 // const image = { uri: "https://foo.com/assets/backgrounds/pexels-min-an-920534.jpg" }
+
+const image = ""
 
 const styles = {
   background: {
@@ -47,7 +49,6 @@ export default function Home() {
   }
 
   return (
-    // <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="black" fg="white">
     <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="$primary500" fg="white">
       <Header />
       <ImageBackground source={image} style={styles.background}>
@@ -55,7 +56,7 @@ export default function Home() {
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send notifications</Text>
         </HStack>
-        {/* <Text>Image by foo</Text> */}
+        {/* <Text>Image by ___</Text> */}
       </ImageBackground>
       <StatusBar style="auto" />
     </Box>
