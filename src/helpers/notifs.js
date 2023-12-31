@@ -1,11 +1,12 @@
+// handle local notifications for web
+//. eventually integrate with gluestack's notification api, which only handles android and ios
+
 // returns t/f
 export async function checkPermissions() {
-  // display is 'prompt' | 'prompt-with-rationale' | 'granted' | 'denied'
-  // const permissionStatus = await plugin.checkPermissions()
-  // switch (permissionStatus.display) {
-  const status = Notification.permission
-  console.log("permission", status)
-  switch (status) {
+  // permission is 'prompt' | 'prompt-with-rationale' | 'granted' | 'denied' | 'default'
+  const permission = Notification.permission
+  console.log("permission", permission)
+  switch (permission) {
     case "granted":
       return true
     case "prompt":
@@ -24,7 +25,7 @@ async function handlePrompt() {
 
 async function handlePromptWithRationale() {
   // show a dialog to the user asking them to allow notifications
-  // then call LocalNotifications.requestPermissions()
+  // then call Notification.requestPermission()
   alert("prompt-with-rationale")
   return false
 }
@@ -32,13 +33,11 @@ async function handlePromptWithRationale() {
 export function createNotification() {
   console.log("createNotification")
   const title = "Psyche reminder"
-  // const now = new Date().toISOString()
   const body = `Take a mindful pause. Be an observer of your thoughts and feelings.`
-  // const img = "/icon.png"
+  const img = require("../assets/icons/icon.png")
   const options = {
-    body
-    // icon: img,
-    // image: img
+    body,
+    icon: img
   }
   console.log("new Notification", title, options)
   const notification = new Notification(title, options)
