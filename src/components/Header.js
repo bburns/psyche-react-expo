@@ -14,19 +14,20 @@ const Logo = () => <Image source={logo} size="xs" />
 
 const Header = React.memo(() => {
   return (
-    <Box>
+    <Box w="100%">
       {/* big screen */}
       <Box
-        px="$16"
         w="100%"
-        display="none"
-        sx={{
-          "@md": {
-            display: "flex"
-          }
-        }}
+        // display="flex"
+        // display="none"
+        // sx={{
+        //   "@md": {
+        //     display: "flex"
+        //   }
+        // }}
+        // justifyContent="flex-start"
       >
-        <HStack alignItems="center" justifyContent="space-between" mx="auto" w="100%" space="lg">
+        <HStack justifyContent="space-between" alignItems="center" w="100%" space="lg" px="$2">
           <Button size="md" variant="link">
             <ButtonIcon as={Logo} />
             &nbsp;<ButtonText color="white">Psyche</ButtonText>
