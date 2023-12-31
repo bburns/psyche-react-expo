@@ -19,11 +19,12 @@ const styles = {
 
 export default function Home() {
   return (
-    <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="$primary500" fg="$primary200">
+    // <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="$primary500" fg="$primary200">
+    <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="black" fg="white">
       <Header />
       <ImageBackground source={image} style={styles.background}>
-        <Heading>Psyche</Heading>
-        <Text>An open-source mental health app</Text>
+        {/* <Heading>Psyche</Heading> */}
+        {/* <Text>An open-source mental health app</Text> */}
       </ImageBackground>
       <StatusBar style="auto" />
     </Box>

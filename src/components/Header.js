@@ -1,6 +1,7 @@
 import React from "react"
 import { Box, HStack, Input, InputField, InputIcon, InputSlot } from "@gluestack-ui/themed"
 import { SearchIcon } from "@gluestack-ui/themed"
+import { Text } from "@gluestack-ui/themed"
 import { Button, ButtonText, ButtonIcon, Image } from "@gluestack-ui/themed"
 // import { Info, Layers, Plus, Search } from 'lucide-react-native';
 // import HeaderTabs from "./header/HeaderTabs";
@@ -18,31 +19,27 @@ const Header = React.memo(() => {
       <Box
         px="$16"
         w="100%"
-        borderBottomWidth={1}
         display="none"
         sx={{
           "@md": {
             display: "flex"
-          },
-          _light: { borderColor: "$borderLight100" },
-          _dark: { borderColor: "$borderDark900" }
+          }
         }}
       >
-        <HStack alignItems="center" justifyContent="space-between" mx="auto" w="100%">
-          <Button size="md" variant="solid" action="primary" isDisabled={false} isFocusVisible={false}>
+        <HStack alignItems="center" justifyContent="space-between" mx="auto" w="100%" space="lg">
+          <Button size="md" variant="link">
             <ButtonIcon as={Logo} />
-            <ButtonText>Psyche</ButtonText>
+            &nbsp;<ButtonText color="white">Psyche</ButtonText>
           </Button>
-
+          <Text>An open-source mental health app</Text>
           {/* <HeaderTabs /> */}
-
           {/* <HStack space="lg" alignItems="center" pr="$1.5">
             <UserProfile />
           </HStack> */}
         </HStack>
       </Box>
       {/* small screen */}
-      <Box
+      {/* <Box
         p="$5"
         sx={{
           "@md": {
@@ -57,7 +54,7 @@ const Header = React.memo(() => {
             <InputIcon as={SearchIcon} color="white" size="sm" />
           </InputSlot>
         </Input>
-      </Box>
+      </Box> */}
     </Box>
   )
 })
