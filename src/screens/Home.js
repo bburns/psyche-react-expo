@@ -3,6 +3,7 @@ import { Text } from "@gluestack-ui/themed"
 import { ImageBackground } from "react-native"
 import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
+import * as notifs from "../helpers/notifs"
 
 // const image = require("../assets/backgrounds/pexels-min-an-920534.jpg") // local image
 const image = require("../assets/backgrounds/pexels-pixabay-326055.jpg") // local image
@@ -19,9 +20,10 @@ const styles = {
   }
 }
 
-function onPress() {
-  // alert("hi")
-  new Notification("Hello world!")
+async function onPress() {
+  if (await notifs.checkPermissions()) {
+    notifs.createNotification()
+  }
 }
 
 export default function Home() {
