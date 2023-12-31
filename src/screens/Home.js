@@ -7,43 +7,41 @@ import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
 import * as notifs from "../helpers/notifs"
 
-// const image = require("../assets/backgrounds/pexels-min-an-920534.jpg") // local image
-const image = require("../assets/backgrounds/pexels-pixabay-326055.jpg") // local image
-// const image = { uri: "https://foo.com/assets/backgrounds/pexels-min-an-920534.jpg" } // remote image
+// local images
+const image = require("../assets/backgrounds/vincent-guth-ISI5DlnYvuY-unsplash.jpg")
+// const image = require("../assets/backgrounds/pexels-min-an-920534.jpg")
+// const image = require("../assets/backgrounds/pexels-pixabay-326055.jpg")
 
-//. move these to ImageBackground props
-const styles = {
-  background: {
-    flex: 1,
-    resizeMode: "cover",
-    width: "100%",
-    justifyContent: "center",
-    alignItems: "center"
-  }
-}
+// remote images
+// const image = { uri: "https://foo.com/assets/backgrounds/pexels-min-an-920534.jpg" }
 
 export default function Home() {
   const [isEnabled, setIsEnabled] = useState(false)
-  // const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
-  async function onToggle(v) {
-    console.log("onToggle", v)
-    if (v) {
+  // toggle notifications on/off - value is t/f
+  async function onToggle(value) {
+    if (value) {
       if (await notifs.checkPermissions()) {
         notifs.createNotification()
       }
     }
-    //. will this rerender the component?
     setIsEnabled((previousState) => !previousState)
   }
 
+  //. move these to ImageBackground props
+  const styles = {
+    background: {
+      flex: 1,
+      width: "100%",
+      resizeMode: "cover",
+      justifyContent: "center",
+      alignItems: "center"
+    }
+  }
   return (
     <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="black" fg="white">
       <Header />
       <ImageBackground source={image} style={styles.background}>
-        {/* <Button onPress={onPress}>
-          <ButtonText>Start notifications</ButtonText>
-        </Button> */}
         <HStack space="md">
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send notifications</Text>

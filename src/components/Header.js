@@ -22,6 +22,17 @@ const Header = React.memo(() => {
             <ButtonText color="white">&nbsp;Psyche</ButtonText>
           </Button>
           <Text color="gray">An open-source mental health app</Text>
+          <Button
+            size="sm"
+            variant="link"
+            onPress={() => {
+              alert("hi")
+            }}
+          >
+            <ButtonText color="white" fontWeight="$medium">
+              About
+            </ButtonText>
+          </Button>
         </HStack>
       </Box>
     </Box>
