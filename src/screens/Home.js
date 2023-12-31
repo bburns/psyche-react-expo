@@ -1,4 +1,4 @@
-import { Box, Button } from "@gluestack-ui/themed"
+import { Box, Button, ButtonText } from "@gluestack-ui/themed"
 import { Text } from "@gluestack-ui/themed"
 import { ImageBackground } from "react-native"
 import { StatusBar } from "expo-status-bar"
@@ -19,13 +19,20 @@ const styles = {
   }
 }
 
+function onPress() {
+  // alert("hi")
+  new Notification("Hello world!")
+}
+
 export default function Home() {
   return (
     <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="black" fg="white">
       <Header />
       <ImageBackground source={image} style={styles.background}>
-        <Button>Start notifications</Button>
-        <Text>Image by foo</Text>
+        <Button onPress={onPress}>
+          <ButtonText>Start notifications</ButtonText>
+        </Button>
+        {/* <Text>Image by foo</Text> */}
       </ImageBackground>
       <StatusBar style="auto" />
     </Box>

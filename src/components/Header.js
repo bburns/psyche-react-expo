@@ -10,52 +10,20 @@ import { Button, ButtonText, ButtonIcon, Image } from "@gluestack-ui/themed"
 import UserProfile from "./UserProfile"
 
 const logo = require("../assets/icons/icon.png") // local image
-const Logo = () => <Image source={logo} size="xs" />
+const Logo = () => <Image source={logo} size="xs" alt="Psyche logo" />
 
 const Header = React.memo(() => {
   return (
     <Box w="100%">
-      {/* big screen */}
-      <Box
-        w="100%"
-        // display="flex"
-        // display="none"
-        // sx={{
-        //   "@md": {
-        //     display: "flex"
-        //   }
-        // }}
-        // justifyContent="flex-start"
-      >
+      <Box w="100%">
         <HStack justifyContent="space-between" alignItems="center" w="100%" space="lg" px="$2">
           <Button size="md" variant="link">
             <ButtonIcon as={Logo} />
-            &nbsp;<ButtonText color="white">Psyche</ButtonText>
+            <ButtonText color="white">&nbsp;Psyche</ButtonText>
           </Button>
           <Text color="gray">An open-source mental health app</Text>
-          {/* <HeaderTabs /> */}
-          {/* <HStack space="lg" alignItems="center" pr="$1.5">
-            <UserProfile />
-          </HStack> */}
         </HStack>
       </Box>
-      {/* small screen */}
-      {/* <Box
-        p="$5"
-        sx={{
-          "@md": {
-            display: "none"
-          }
-        }}
-        w="100%"
-      >
-        <Input variant="rounded" size="sm" w="100%">
-          <InputField placeholder="Anywhere • Any week • Add guests" />
-          <InputSlot bg="$primary500" borderRadius="$full" h="$6" w="$6" m="$1.5">
-            <InputIcon as={SearchIcon} color="white" size="sm" />
-          </InputSlot>
-        </Input>
-      </Box> */}
     </Box>
   )
 })
