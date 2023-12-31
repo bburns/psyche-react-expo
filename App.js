@@ -4,7 +4,7 @@
 
 import { GluestackUIProvider } from "@gluestack-ui/themed"
 import { config } from "./src/config"
-import Home from "./src/Home"
+import Home from "./src/screens/Home"
 
 export default function App() {
   return (

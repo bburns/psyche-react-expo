@@ -31,7 +31,7 @@ const Header = React.memo(() => {
             <ButtonIcon as={Logo} />
             &nbsp;<ButtonText color="white">Psyche</ButtonText>
           </Button>
-          <Text>An open-source mental health app</Text>
+          <Text color="gray">An open-source mental health app</Text>
           {/* <HeaderTabs /> */}
           {/* <HStack space="lg" alignItems="center" pr="$1.5">
             <UserProfile />

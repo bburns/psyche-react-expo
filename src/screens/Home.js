@@ -1,10 +1,10 @@
 import { Box, Heading, Text } from "@gluestack-ui/themed"
 import { ImageBackground } from "react-native"
 import { StatusBar } from "expo-status-bar"
-import Header from "./components/Header"
+import Header from "../components/Header"
 
-// const image = require("./assets/backgrounds/pexels-min-an-920534.jpg") // local image
-const image = require("./assets/backgrounds/pexels-pixabay-326055.jpg") // local image
+// const image = require("../assets/backgrounds/pexels-min-an-920534.jpg") // local image
+const image = require("../assets/backgrounds/pexels-pixabay-326055.jpg") // local image
 // const image = { uri: "https://foo.com/assets/backgrounds/pexels-min-an-920534.jpg" } // remote image
 
 const styles = {
