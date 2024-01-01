@@ -1,8 +1,9 @@
 import { useState, useRef } from "react"
-import { Box, Button, ButtonText } from "@gluestack-ui/themed"
+import { Box } from "@gluestack-ui/themed"
+import { ImageBackground } from "react-native"
 import { Text } from "@gluestack-ui/themed"
 import { HStack, Switch } from "@gluestack-ui/themed"
-import { ImageBackground } from "react-native"
+// import { Button, ButtonText } from "@gluestack-ui/themed"
 import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
 import * as notifs from "../helpers/notifs"
@@ -80,7 +81,7 @@ export default function Home() {
       <ImageBackground source={image} style={styles.background}>
         <HStack space="md">
           <Switch onToggle={onToggle} value={isEnabled} />
-          <Text>Send notifications</Text>
+          <Text>Send reminders every {reminder.schedule.every}</Text>
         </HStack>
       </ImageBackground>
       <StatusBar style="auto" />

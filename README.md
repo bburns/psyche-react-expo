@@ -6,23 +6,23 @@ An open-source mental health app.
 
 ## Develop
 
-git clone https://github.com/bburns/psyche-react-expo
-cd psyche-react-expo
-npm install
-npm start
+    git clone https://github.com/bburns/psyche-react-expo
+    cd psyche-react-expo
+    npm install
+    npm run web
 
-will open browser at http://localhost:19006
+Browser will open at http://localhost:19006
 
 ## Deploy
 
     npm run build
     npm run deploy
 
-test that link, then
+Test that link, then
 
     npm run deploy:prod
 
-site will be at https://psyche-react-expo.netlify.app/
+Site will be at https://psyche-react-expo.netlify.app/
 
 ## License
 
