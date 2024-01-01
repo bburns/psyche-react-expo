@@ -1,32 +1,12 @@
 import { useState, useRef } from "react"
 import { Box } from "@gluestack-ui/themed"
-import { ImageBackground } from "react-native"
 import { Text } from "@gluestack-ui/themed"
 import { HStack, Switch } from "@gluestack-ui/themed"
 // import { Button, ButtonText } from "@gluestack-ui/themed"
 import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
+import Background from "../components/Background"
 import * as notifs from "../helpers/notifs"
-
-// background
-const image = ""
-// local images
-// const image = require("../assets/backgrounds/vincent-guth-ISI5DlnYvuY-unsplash.jpg")
-// const image = require("../assets/backgrounds/pexels-min-an-920534.jpg")
-// const image = require("../assets/backgrounds/pexels-pixabay-326055.jpg")
-// const image = require("../assets/backgrounds/purple_and_white_flowers_during_windy_day (720p).mp4")
-// remote images
-// const image = { uri: "https://foo.com/assets/backgrounds/pexels-min-an-920534.jpg" }
-
-const styles = {
-  background: {
-    flex: 1,
-    width: "100%",
-    resizeMode: "cover",
-    justifyContent: "center",
-    alignItems: "center"
-  }
-}
 
 const reminder = {
   title: "Psyche reminder",
@@ -78,12 +58,14 @@ export default function Home() {
   return (
     <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="$primary500" fg="white">
       <Header />
-      <ImageBackground source={image} style={styles.background}>
+      <Background>
+        {/* <ImageBackground source={image} style={styles.background}> */}
         <HStack space="md">
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send reminders every {reminder.schedule.every}</Text>
         </HStack>
-      </ImageBackground>
+        {/* </ImageBackground> */}
+      </Background>
       <StatusBar style="auto" />
     </Box>
   )
