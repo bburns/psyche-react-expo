@@ -60,6 +60,9 @@ export default function Home() {
     if (await notifs.checkPermissions()) {
       const timerId = notifs.scheduleNotification(reminder)
       timerRef.current = timerId
+      if (timerId) {
+        alert(`Reminder scheduled for every ${reminder.schedule.every}`)
+      }
     }
   }
 
@@ -67,6 +70,8 @@ export default function Home() {
     console.log("stopTimer", timerRef)
     const timerId = timerRef.current
     window.clearInterval(timerId)
+    timerRef.current = undefined
+    alert("Reminder cancelled")
   }
 
   return (
