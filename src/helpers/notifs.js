@@ -33,13 +33,14 @@ async function handlePromptWithRationale() {
   return false
 }
 
+// returns a timerId if scheduled, or undefined
 export function scheduleNotification(obj) {
   console.log("scheduleNotification", obj)
 
   const { schedule } = obj
 
   // handle a recurring notification
-  // schedule.every is a string like "day"
+  // every is a string like "day"
   if (schedule.every) return handleEvery(obj)
 
   // handle a one-time notification
@@ -49,6 +50,7 @@ export function scheduleNotification(obj) {
   createNotification(obj)
 }
 
+// returns a timerId
 function handleEvery(obj) {
   console.log("handleEvery", obj)
   const { every } = obj.schedule
@@ -71,7 +73,6 @@ function handleEvery(obj) {
   //. move this inside render fn? so can access ref?
   console.log("starting timer")
   const timerId = window.setInterval(createNotification, seconds * 1000, obj)
-  // timerRef.current = timerId
   return timerId
 }
 
@@ -90,4 +91,5 @@ export function createNotification(obj) {
   notification.onclose = () => {
     console.log("notification closed")
   }
+  return notification
 }

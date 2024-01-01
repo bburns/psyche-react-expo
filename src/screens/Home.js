@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Box, Button, ButtonText } from "@gluestack-ui/themed"
 import { Text } from "@gluestack-ui/themed"
 import { HStack, Switch } from "@gluestack-ui/themed"
@@ -40,15 +40,28 @@ const reminder = {
 
 export default function Home() {
   const [isEnabled, setIsEnabled] = useState(false)
+  const timerRef = useRef(undefined)
 
   // toggle notifications on/off - value is t/f
   async function onToggle(value) {
     if (value) {
-      if (await notifs.checkPermissions()) {
-        notifs.scheduleNotification(reminder)
-      }
+      startTimer()
+    } else {
+      stopTimer()
     }
     setIsEnabled((previousState) => !previousState)
+  }
+
+  async function startTimer() {
+    if (await notifs.checkPermissions()) {
+      const timerId = notifs.scheduleNotification(reminder)
+      timerRef.current = timerId
+    }
+  }
+
+  async function stopTimer() {
+    const timerId = timerRef.current
+    window.clearInterval(timerId)
   }
 
   return (
