@@ -7,14 +7,6 @@ import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
 import * as notifs from "../helpers/notifs"
 
-const reminder = {
-  title: "Psyche reminder",
-  options: {
-    body: `Take a mindful pause. Be an observer of your thoughts and feelings.`,
-    icon: require("../assets/icons/icon.png")
-  }
-}
-
 // local images
 // const image = require("../assets/backgrounds/vincent-guth-ISI5DlnYvuY-unsplash.jpg")
 // const image = require("../assets/backgrounds/pexels-min-an-920534.jpg")
@@ -32,6 +24,17 @@ const styles = {
     resizeMode: "cover",
     justifyContent: "center",
     alignItems: "center"
+  }
+}
+
+const reminder = {
+  title: "Psyche reminder",
+  options: {
+    body: `Take a mindful pause. Be an observer of your thoughts and feelings.`,
+    icon: require("../assets/icons/icon.png")
+  },
+  schedule: {
+    every: "minute"
   }
 }
 

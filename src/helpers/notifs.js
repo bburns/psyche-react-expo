@@ -1,9 +1,12 @@
 // handle local notifications for web
-//. eventually integrate with gluestack's notification api, which only handles android and ios
+
+//. integrate with gluestack's notification api,
+// which currently only handles android and ios.
+
+//. add types
 
 // returns t/f
 export async function checkPermissions() {
-  // permission is 'prompt' | 'prompt-with-rationale' | 'granted' | 'denied' | 'default'
   const permission = Notification.permission
   console.log("permission", permission)
   switch (permission) {
@@ -25,9 +28,50 @@ async function handlePrompt() {
 
 async function handlePromptWithRationale() {
   // show a dialog to the user asking them to allow notifications
-  // then call Notification.requestPermission()
+  // then call requestPermission()
   alert("prompt-with-rationale")
   return false
+}
+
+export function scheduleNotification(obj) {
+  console.log("scheduleNotification", obj)
+
+  const { schedule } = obj
+
+  // handle a recurring notification
+  // schedule.every is a string like "day"
+  if (schedule.every) return handleEvery(obj)
+
+  // handle a one-time notification
+  // if (schedule.at) return handleAt(obj)
+
+  // else create a notification now
+  createNotification(obj)
+}
+
+function handleEvery(obj) {
+  const { every } = obj.schedule
+  const timeUnits = {
+    second: 1,
+    minute: 60,
+    hour: 3600,
+    day: 86400,
+    week: 604800,
+    month: 2592000,
+    quarter: 7776000,
+    year: 31536000
+  }
+  const seconds = timeUnits[every]
+  if (!seconds) throw new Error(`invalid time unit ${every}`)
+  console.log(`scheduling notification every ${seconds} seconds`)
+
+  //. need to tie this into react lifecycle - ie save timerid so can clear it on unmount.
+  //. check if timer already running - if so, clear it first
+  //. move this inside render fn? so can access ref?
+  console.log("starting timer")
+  const timerId = window.setInterval(createNotification, seconds * 1000, obj)
+  // timerRef.current = timerId
+  return timerId
 }
 
 // create a new web Notification, using a new browser API -
