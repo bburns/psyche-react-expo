@@ -34,7 +34,9 @@ const reminder = {
     icon: require("../assets/icons/icon.png")
   },
   schedule: {
+    // every: "5 seconds"
     every: "minute"
+    // every: "hour"
   }
 }
 
@@ -44,6 +46,7 @@ export default function Home() {
 
   // toggle notifications on/off - value is t/f
   async function onToggle(value) {
+    console.log("onToggle", value)
     if (value) {
       startTimer()
     } else {
@@ -53,6 +56,7 @@ export default function Home() {
   }
 
   async function startTimer() {
+    console.log("startTimer", timerRef)
     if (await notifs.checkPermissions()) {
       const timerId = notifs.scheduleNotification(reminder)
       timerRef.current = timerId
@@ -60,6 +64,7 @@ export default function Home() {
   }
 
   async function stopTimer() {
+    console.log("stopTimer", timerRef)
     const timerId = timerRef.current
     window.clearInterval(timerId)
   }

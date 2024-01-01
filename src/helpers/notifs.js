@@ -90,6 +90,7 @@ export function createNotification(obj) {
   }
   notification.onclose = () => {
     console.log("notification closed")
+    // notification.close()
   }
   return notification
 }
