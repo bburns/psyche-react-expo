@@ -50,6 +50,7 @@ export function scheduleNotification(obj) {
 }
 
 function handleEvery(obj) {
+  console.log("handleEvery", obj)
   const { every } = obj.schedule
   const timeUnits = {
     second: 1,
@@ -74,9 +75,9 @@ function handleEvery(obj) {
   return timerId
 }
 
-// create a new web Notification, using a new browser API -
+// create a new web Notification, using the browser API -
 // sends a notification to the OS.
-// obj has { title, options: { body, icon } }
+// obj has { title, options: { body, icon }, ... }
 export function createNotification(obj) {
   console.log("createNotification", obj)
   const notification = new Notification(obj.title, obj.options)

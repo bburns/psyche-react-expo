@@ -7,6 +7,8 @@ import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
 import * as notifs from "../helpers/notifs"
 
+// background
+const image = ""
 // local images
 // const image = require("../assets/backgrounds/vincent-guth-ISI5DlnYvuY-unsplash.jpg")
 // const image = require("../assets/backgrounds/pexels-min-an-920534.jpg")
@@ -14,8 +16,6 @@ import * as notifs from "../helpers/notifs"
 // const image = require("../assets/backgrounds/purple_and_white_flowers_during_windy_day (720p).mp4")
 // remote images
 // const image = { uri: "https://foo.com/assets/backgrounds/pexels-min-an-920534.jpg" }
-
-const image = ""
 
 const styles = {
   background: {
@@ -45,7 +45,7 @@ export default function Home() {
   async function onToggle(value) {
     if (value) {
       if (await notifs.checkPermissions()) {
-        notifs.createNotification(reminder)
+        notifs.scheduleNotification(reminder)
       }
     }
     setIsEnabled((previousState) => !previousState)
@@ -59,7 +59,6 @@ export default function Home() {
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send notifications</Text>
         </HStack>
-        {/* <Text>Image by ___</Text> */}
       </ImageBackground>
       <StatusBar style="auto" />
     </Box>
