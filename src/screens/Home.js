@@ -59,12 +59,10 @@ export default function Home() {
     <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="$primary500" fg="white">
       <Header />
       <Background>
-        {/* <ImageBackground source={image} style={styles.background}> */}
         <HStack space="md">
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send reminders every {reminder.schedule.every}</Text>
         </HStack>
-        {/* </ImageBackground> */}
       </Background>
       <StatusBar style="auto" />
     </Box>
