@@ -21,6 +21,23 @@ const reminder = {
   }
 }
 
+//. these can be resources from the cloud db and hosting and cdn
+
+const background = {
+  title: "Cliffs of Moher",
+  author: "Vincent Guth",
+  image: require("../resources/backgrounds/vincent-guth-ISI5DlnYvuY-unsplash.jpg"),
+  source: "https://unsplash.com/photos/rock-formation-above-water-ISI5DlnYvuY"
+}
+
+// local images
+// const image = require("../resources/backgrounds/pexels-min-an-920534.jpg") // stars
+// const image = require("../resources/backgrounds/pexels-pixabay-326055.jpg") // butterflies
+// const image = require("../resources/backgrounds/purple_and_white_flowers_during_windy_day (720p).mp4")
+
+// remote images
+// const image = { uri: "https://foo.com/resources/backgrounds/pexels-min-an-920534.jpg" }
+
 export default function Home() {
   const [isEnabled, setIsEnabled] = useState(false)
   const timerRef = useRef(undefined)
@@ -58,7 +75,7 @@ export default function Home() {
   return (
     <Box flex="1" flexDirection="column" alignItems="center" justifyContent="center" bg="$primary500" fg="white">
       <Header />
-      <Background>
+      <Background background={background}>
         <HStack space="md">
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send reminders every {reminder.schedule.every}</Text>
