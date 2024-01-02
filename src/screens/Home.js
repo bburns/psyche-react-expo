@@ -7,36 +7,9 @@ import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
 import Background from "../components/Background"
 import * as notifs from "../helpers/notifs"
+import * as resources from "../resources"
 
-const reminder = {
-  title: "Psyche reminder",
-  options: {
-    body: `Take a mindful pause. Be an observer of your thoughts and feelings.`,
-    icon: require("../assets/icons/icon.png")
-  },
-  schedule: {
-    // every: "5 seconds" //. handle number prefixes
-    // every: "minute"
-    every: "hour"
-  }
-}
-
-//. these can be resources from the cloud db and hosting and cdn
-
-const background = {
-  title: "Cliffs of Moher",
-  author: "Vincent Guth",
-  image: require("../resources/backgrounds/vincent-guth-ISI5DlnYvuY-unsplash.jpg"),
-  source: "https://unsplash.com/photos/rock-formation-above-water-ISI5DlnYvuY"
-}
-
-// local images
-// const image = require("../resources/backgrounds/pexels-min-an-920534.jpg") // stars
-// const image = require("../resources/backgrounds/pexels-pixabay-326055.jpg") // butterflies
-// const image = require("../resources/backgrounds/purple_and_white_flowers_during_windy_day (720p).mp4")
-
-// remote images
-// const image = { uri: "https://foo.com/resources/backgrounds/pexels-min-an-920534.jpg" }
+const { reminder, background } = resources
 
 export default function Home() {
   const [isEnabled, setIsEnabled] = useState(false)
@@ -78,7 +51,7 @@ export default function Home() {
       <Background background={background}>
         <HStack space="md">
           <Switch onToggle={onToggle} value={isEnabled} />
-          <Text>Send reminders every {reminder.schedule.every}</Text>
+          <Text>Send reminder every {reminder.schedule.every}</Text>
         </HStack>
       </Background>
       <StatusBar style="auto" />
