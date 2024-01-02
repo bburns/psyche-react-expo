@@ -32,6 +32,16 @@ export default function About({ showAbout, setShowAbout }) {
           <Text>
             See <a href={link}>{link}</a> for more information.
           </Text>
+          <Text>
+            Photo by{" "}
+            <a href="https://unsplash.com/@vingtcent?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+              Vincent Guth
+            </a>{" "}
+            on{" "}
+            <a href="https://unsplash.com/photos/rock-formation-above-water-ISI5DlnYvuY?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
+              Unsplash
+            </a>
+          </Text>
         </ModalBody>
         <ModalFooter>
           <Button size="sm" onPress={() => setShowAbout(false)}>

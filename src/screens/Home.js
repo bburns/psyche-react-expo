@@ -15,9 +15,9 @@ const reminder = {
     icon: require("../assets/icons/icon.png")
   },
   schedule: {
-    // every: "5 seconds"
-    every: "minute"
-    // every: "hour"
+    // every: "5 seconds" //. handle number prefixes
+    // every: "minute"
+    every: "hour"
   }
 }
 

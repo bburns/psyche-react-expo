@@ -4,12 +4,7 @@ import { config as defaultConfig } from "@gluestack-ui/config"
 import { createConfig } from "@gluestack-ui/themed"
 import { mergeDeep } from "./utils"
 
-// config.tokens.fontSizes.newFontSize = 90
-// config.components.Heading.theme.color = "$textLight0"
-// config.components.Text.theme.color = "$textLight200"
-
-// define prop overrides and use deepmerge
-
+// define config overrides and use deepmerge
 const overrides = {
   components: {
     Heading: {
@@ -30,5 +25,9 @@ const overrides = {
   }
 }
 
+// or do like so -
+// config.tokens.fontSizes.newFontSize = 90
+// config.components.Heading.theme.color = "$textLight0"
+// config.components.Text.theme.color = "$textLight200"
+
 export const config = createConfig(mergeDeep(defaultConfig, overrides))
-// console.log("config", config)
