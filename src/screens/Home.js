@@ -6,14 +6,28 @@ import { HStack, Switch } from "@gluestack-ui/themed"
 import { StatusBar } from "expo-status-bar"
 import Header from "../components/Header"
 import Background from "../components/Background"
+import Alert from "../components/Alert"
 import * as notifs from "../helpers/notifs"
 import * as resources from "../resources"
 
 const { reminder, background } = resources
 
+//. make a hook for modal - eg
+// const [showModal, setShowModal] = useModal()
+// <Modal show={showModal} setShow={setShowModal} />
+
 export default function Home() {
   const [isEnabled, setIsEnabled] = useState(false)
   const timerRef = useRef(undefined)
+  const [showAlert, setShowAlert] = useState(false)
+
+  function Notice({ title }) {
+    return (
+      <Alert title={title} showAlert={showAlert} setShowAlert={setShowAlert}>
+        <Text>hiiiii</Text>
+      </Alert>
+    )
+  }
 
   // toggle notifications on/off - value is t/f
   async function onToggle(value) {
@@ -32,7 +46,9 @@ export default function Home() {
       const timerId = notifs.scheduleNotification(reminder)
       timerRef.current = timerId
       if (timerId) {
-        alert(`Reminder scheduled for every ${reminder.schedule.every}`)
+        //. make nice dialog
+        setShowAlert(true)
+        // alert(`Reminder scheduled for every ${reminder.schedule.every}`)
       }
     }
   }
@@ -42,7 +58,8 @@ export default function Home() {
     const timerId = timerRef.current
     window.clearInterval(timerId)
     timerRef.current = undefined
-    alert("Reminder cancelled")
+    setShowAlert(true)
+    // alert("Reminder cancelled")
   }
 
   return (
@@ -53,6 +70,7 @@ export default function Home() {
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send reminder every {reminder.schedule.every}</Text>
         </HStack>
+        <Notice title="pokpok" />
       </Background>
       <StatusBar style="auto" />
     </Box>
