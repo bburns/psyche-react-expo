@@ -12,19 +12,26 @@ import * as resources from "../resources"
 
 const { reminder, background } = resources
 
-//. make a hook for modal - eg
-// const [showModal, setShowModal] = useModal()
-// <Modal show={showModal} setShow={setShowModal} />
-
 export default function Home() {
   const [isEnabled, setIsEnabled] = useState(false)
   const timerRef = useRef(undefined)
   const [showAlert, setShowAlert] = useState(false)
 
-  function Notice({ title }) {
+  //. make a hook for modals - eg
+  // const [Modal, open, close] = useModal()
+  // <Modal ... />
+  // const [Modal, open, close] = useModal()
+  //?
+
+  // const showAlert = useAlert()
+  // then call showAlert({ title, text }) ?
+  // it would... set the open state of the Alert to true,
+  // causing react to render it
+
+  function Notice({ title, text }) {
     return (
       <Alert title={title} showAlert={showAlert} setShowAlert={setShowAlert}>
-        <Text>hiiiii</Text>
+        <Text>{text}</Text>
       </Alert>
     )
   }
@@ -46,9 +53,10 @@ export default function Home() {
       const timerId = notifs.scheduleNotification(reminder)
       timerRef.current = timerId
       if (timerId) {
+        // alert(`Reminder scheduled for every ${reminder.schedule.every}`)
         //. make nice dialog
         setShowAlert(true)
-        // alert(`Reminder scheduled for every ${reminder.schedule.every}`)
+        // showAlert({ title: "Reminder scheduled", text: `Reminder scheduled for every ${reminder.schedule.every}` })
       }
     }
   }
@@ -70,7 +78,8 @@ export default function Home() {
           <Switch onToggle={onToggle} value={isEnabled} />
           <Text>Send reminder every {reminder.schedule.every}</Text>
         </HStack>
-        <Notice title="pokpok" />
+        {/* <Notice title="pokpok" /> */}
+        <Alert title="Reminder scheduled" showAlert={showAlert} setShowAlert={setShowAlert} />
       </Background>
       <StatusBar style="auto" />
     </Box>

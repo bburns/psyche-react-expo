@@ -1,36 +1,51 @@
-//. maybe can just use Modal?
+// reusable alert component
+// uses gluestack Modal
 
 import {
-  AlertDialog,
-  AlertDialogBackdrop,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogCloseButton,
-  AlertDialogFooter,
-  AlertDialogBody
+  Modal,
+  ModalBackdrop,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalFooter,
+  ModalBody
 } from "@gluestack-ui/themed"
 import { Heading, Icon, Text } from "@gluestack-ui/themed"
 import { Button, ButtonText } from "@gluestack-ui/themed"
 import { X } from "lucide-react-native"
 
-export default function Alert({ title, showAlert, setShowAlert, children }) {
+export function useAlert() {
+  const [showAlert, setShowAlert] = useState(false)
+  const [title, setTitle] = useState("")
+  const [text, setText] = useState("")
+
+  function showAlertFn({ title, text }) {
+    setTitle(title)
+    setText(text)
+    setShowAlert(true)
+  }
+
+  return [showAlert, setShowAlert, showAlertFn]
+}
+
+export default function Alert({ title, text, showAlert, setShowAlert, children }) {
   return (
-    <AlertDialog isOpen={showAlert} onClose={() => setShowAlert(false)}>
-      <AlertDialogBackdrop />
-      <AlertDialogContent bg="$primary500">
-        <AlertDialogHeader>
+    <Modal isOpen={showAlert} onClose={() => setShowAlert(false)}>
+      <ModalBackdrop />
+      <ModalContent bg="$primary500">
+        <ModalHeader>
           <Heading size="lg">{title}</Heading>
-          <AlertDialogCloseButton>
+          <ModalCloseButton>
             <X />
-          </AlertDialogCloseButton>
-        </AlertDialogHeader>
-        <AlertDialogBody>{children}</AlertDialogBody>
-        <AlertDialogFooter>
+          </ModalCloseButton>
+        </ModalHeader>
+        <ModalBody>{children}</ModalBody>
+        <ModalFooter>
           <Button size="sm" onPress={() => setShowAlert(false)}>
             <ButtonText>Close</ButtonText>
           </Button>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
   )
 }

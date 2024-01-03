@@ -19,7 +19,8 @@ export default function About({ showAbout, setShowAbout }) {
   return (
     <Modal isOpen={showAbout} onClose={() => setShowAbout(false)} finalFocusRef={ref}>
       <ModalBackdrop />
-      <ModalContent bg="$primary500">
+      {/* <ModalContent bg="$primary500"> */}
+      <ModalContent>
         <ModalHeader>
           <Heading size="lg">Psyche</Heading>
           <ModalCloseButton>

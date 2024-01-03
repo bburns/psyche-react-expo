@@ -1,3 +1,5 @@
+// use this to provide a background image for the page/app
+
 import { ImageBackground } from "react-native"
 
 const styles = {
